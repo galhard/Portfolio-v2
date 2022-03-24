@@ -7,3 +7,7 @@
     transform: rotate(50000deg);
   }
 }
+@mixin opacity5s {
+  transition: opacity 5s;
+  opacity: 0;
+}

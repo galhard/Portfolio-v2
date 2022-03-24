@@ -5,12 +5,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   &__title {
     font-size: 3rem;
     text-transform: uppercase;
     color: #51cf66;
     text-shadow: 0 0 0.5rem #51cf6663;
     text-align: center;
+    @include opacity5s;
   }
   &__animation {
     display: flex;
@@ -24,6 +26,7 @@
     text-shadow: 0 0 0.5rem #51cf6663;
     &__start {
       width: min-content;
+      @include opacity5s;
     }
     &__road {
       width: 100%;
@@ -33,34 +36,25 @@
       &__part1 {
         height: 50%;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        &-face1 {
-          height: 6rem;
-        }
-        &-happy {
-          height: 6rem;
-          stroke: red;
-          transition: transform 50s;
-          &:hover {
-            transform: translateX(1000px);
-          }
-        }
-        &-sad {
-          height: 6rem;
-          transition: transform 50s;
-          &:hover {
-            transform: translateX(1000px);
-          }
+        justify-content: flex-start;
+        transform: translateX(35%);
+        transition: all 5s;
+        // justify-content: space-between;
+        // align-items: flex-end;
+        &-face {
+          transition: all 5s;
+          height: 20rem;
         }
       }
       &__part2 {
         height: 50%;
         border-top: 3px solid #3bc9db;
+        @include opacity5s;
       }
     }
     &__finish {
       width: min-content;
+      @include opacity5s;
     }
   }
 }

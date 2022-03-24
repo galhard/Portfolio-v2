@@ -198,6 +198,7 @@ main {
   cursor: pointer;
 }
 .skills__text {
+  text-align: center;
   position: absolute;
   left: 3.2rem;
   right: 3.2rem;
@@ -205,16 +206,6 @@ main {
   font-size: 3rem;
   color: #51cf66;
   text-shadow: 0 0 0.5rem #51cf6663;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.5rem;
   -webkit-transition: all 5s;
   transition: all 5s;
   -webkit-transform: translateY(100%);
@@ -271,10 +262,10 @@ main {
 }
 .projects__img-gear {
   height: 28rem;
-}
-.projects__img-gear:hover {
-  -webkit-transform: rotate(2000deg);
-          transform: rotate(2000deg);
+  -webkit-transition: -webkit-transform 120s;
+  transition: -webkit-transform 120s;
+  transition: transform 120s;
+  transition: transform 120s, -webkit-transform 120s;
 }
 .projects__img-bulb {
   position: absolute;
@@ -298,6 +289,9 @@ main {
       -ms-writing-mode: tb-rl;
           writing-mode: vertical-rl;
   text-orientation: upright;
+  opacity: 0;
+  -webkit-transition: opacity 5s;
+  transition: opacity 5s;
 }
 
 .projects-full {
@@ -497,6 +491,9 @@ main {
   color: #51cf66;
   text-shadow: 0 0 0.5rem #51cf6663;
   text-align: center;
+  -webkit-transition: opacity 5s;
+  transition: opacity 5s;
+  opacity: 0;
 }
 .roadmap__animation {
   display: -webkit-box;
@@ -519,6 +516,9 @@ main {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
+  -webkit-transition: opacity 5s;
+  transition: opacity 5s;
+  opacity: 0;
 }
 .roadmap__animation__road {
   width: 100%;
@@ -538,47 +538,33 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-transform: translateX(35%);
+          transform: translateX(35%);
+  -webkit-transition: all 5s;
+  transition: all 5s;
 }
-.roadmap__animation__road__part1-face1 {
-  height: 6rem;
-}
-.roadmap__animation__road__part1-happy {
-  height: 6rem;
-  stroke: red;
-  -webkit-transition: -webkit-transform 50s;
-  transition: -webkit-transform 50s;
-  transition: transform 50s;
-  transition: transform 50s, -webkit-transform 50s;
-}
-.roadmap__animation__road__part1-happy:hover {
-  -webkit-transform: translateX(1000px);
-          transform: translateX(1000px);
-}
-.roadmap__animation__road__part1-sad {
-  height: 6rem;
-  -webkit-transition: -webkit-transform 50s;
-  transition: -webkit-transform 50s;
-  transition: transform 50s;
-  transition: transform 50s, -webkit-transform 50s;
-}
-.roadmap__animation__road__part1-sad:hover {
-  -webkit-transform: translateX(1000px);
-          transform: translateX(1000px);
+.roadmap__animation__road__part1-face {
+  -webkit-transition: all 5s;
+  transition: all 5s;
+  height: 20rem;
 }
 .roadmap__animation__road__part2 {
   height: 50%;
   border-top: 3px solid #3bc9db;
+  -webkit-transition: opacity 5s;
+  transition: opacity 5s;
+  opacity: 0;
 }
 .roadmap__animation__finish {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
+  -webkit-transition: opacity 5s;
+  transition: opacity 5s;
+  opacity: 0;
 }
 
 .roadmap-full {

@@ -1,7 +1,5 @@
 .projects {
   grid-area: pr;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
   justify-content: center;
@@ -10,9 +8,7 @@
     position: relative;
     &-gear {
       height: 28rem;
-      &:hover {
-        transform: rotate(2000deg);
-      }
+      transition: transform 120s;
     }
     &-bulb {
       position: absolute;
@@ -34,6 +30,8 @@
     text-shadow: 0 0 0.5rem #51cf6663;
     writing-mode: vertical-rl;
     text-orientation: upright;
+    opacity: 0;
+    transition: opacity 5s;
   }
 }
 
