@@ -64,7 +64,7 @@ main {
 }
 
 .portfolio {
-  margin: 2rem auto;
+  margin: 0 auto;
   max-width: 100rem;
   height: 100rem;
   display: grid;
@@ -106,6 +106,8 @@ main {
           justify-content: space-between;
   gap: 0.5rem;
   grid-area: ab;
+  -webkit-transition: all 3s;
+  transition: all 3s;
 }
 .hero__left {
   display: -webkit-box;
@@ -163,6 +165,8 @@ main {
 .map {
   grid-area: map;
   border: none;
+  -webkit-transition: all 3s;
+  transition: all 3s;
 }
 
 #map {
@@ -196,6 +200,8 @@ main {
           justify-content: center;
   position: relative;
   cursor: pointer;
+  -webkit-transition: all 3s;
+  transition: all 3s;
 }
 .skills__text {
   text-align: center;
@@ -220,12 +226,15 @@ main {
 }
 
 .skills-full {
-  margin: 5rem auto;
+  margin: 0 auto;
   height: 100rem;
   max-width: 100rem;
   border: 1px solid #3bc9db;
   border-radius: 40px;
   position: relative;
+  -webkit-transition: all 5s;
+  transition: all 5s;
+  display: none;
 }
 .skills-full__text {
   padding-top: 3.2rem;
@@ -256,6 +265,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 3s;
+  transition: all 3s;
 }
 .projects__img {
   position: relative;
@@ -300,9 +311,7 @@ main {
   max-width: 100rem;
   border: 1px solid #3bc9db;
   border-radius: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -484,6 +493,8 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: all 3s;
+  transition: all 3s;
 }
 .roadmap__title {
   font-size: 3rem;
@@ -541,8 +552,8 @@ main {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-transform: translateX(35%);
-          transform: translateX(35%);
+  -webkit-transform: translateX(25%);
+          transform: translateX(25%);
   -webkit-transition: all 5s;
   transition: all 5s;
 }
@@ -569,13 +580,12 @@ main {
 
 .roadmap-full {
   margin: 5rem auto;
-  padding: 3.2rem;
   height: 100rem;
   max-width: 100rem;
   border: 1px solid #3bc9db;
   border-radius: 40px;
   position: relative;
-  display: grid;
+  display: none;
   row-gap: 1rem;
   -webkit-column-gap: 1rem;
      -moz-column-gap: 1rem;

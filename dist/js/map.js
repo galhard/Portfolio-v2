@@ -1,5 +1,5 @@
 //Map
-var map = L.map('map', {
+const map = L.map('map', {
   zoomControl: false,
   attributionControl: false,
 }).setView([53.0232, 18.6184], 13);

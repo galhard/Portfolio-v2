@@ -1,7 +1,14 @@
 //GLOBAL SCOPE ELEMENTS
-
+const hero = document.querySelector('.hero') as HTMLDivElement;
+const mapEl = document.querySelector('.map') as HTMLDivElement;
 const skills = document.querySelector('.skills') as HTMLDivElement;
+const skillsFull = document.querySelector('.skills-full') as HTMLDivElement;
 const projects = document.querySelector('.projects') as HTMLDivElement;
+const roadmap = document.querySelector('.roadmap') as HTMLDivElement;
+const sectionsArray = [hero, mapEl, skills, projects, roadmap];
+sectionsArray.forEach(el => {
+  console.log(el.className);
+});
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
@@ -11,23 +18,55 @@ const skillsText = document.querySelector(
   '.skills__text'
 ) as HTMLParagraphElement;
 const skillsImg = document.querySelector('.skills__img') as HTMLImageElement;
+const hidingSections = function (sectionFull: HTMLDivElement) {
+  setTimeout(() => {
+    hero.style.transform = 'translateX(-200%)';
+    hero.style.opacity = '0';
+    mapEl.style.transform = 'translateX(200%)';
+    mapEl.style.opacity = '0';
+    skills.style.transform = 'translateX(-200%)';
+    skills.style.opacity = '0';
+    projects.style.transform = 'translateX(200%)';
+    projects.style.opacity = '0';
+    roadmap.style.transform = 'translateX(-200%)';
+    roadmap.style.opacity = '0';
+    setTimeout(() => {
+      sectionsArray.forEach(el => {
+        el.style.display = 'none';
+      });
 
-skills.addEventListener('mouseenter', function () {
+      sectionFull.style.display = 'block';
+      setTimeout(() => {
+        sectionFull.style.opacity = '1';
+        sectionFull.style.transform = 'translateY(-100%)';
+      }, 1000);
+    }, 3000);
+  }, 5000);
+};
+skills.addEventListener('click', function (e) {
+  console.log(e);
+  projects.style.pointerEvents = 'none';
   skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
   skillsText.style.opacity = '1';
   skillsText.style.transform = 'none';
-  setTimeout(() => {
-    skills.addEventListener('click', () => {
-      skillsImg.style.display = 'none';
-    });
-  }, 5000);
+  hidingSections(skillsFull);
 });
+// skills.addEventListener('mouseenter', function () {
+//   skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
+//   skillsText.style.opacity = '1';
+//   skillsText.style.transform = 'none';
+//   setTimeout(() => {
+//     skills.addEventListener('click', () => {
+//       skillsImg.style.display = 'none';
+//     });
+//   }, 5000);
+// });
 
-skills.addEventListener('mouseleave', function () {
-  skillsImg.style.transform = 'none';
-  skillsText.style.opacity = '0';
-  skillsText.style.transform = 'translateY(100%)';
-});
+// skills.addEventListener('mouseleave', function () {
+//   skillsImg.style.transform = 'none';
+//   skillsText.style.opacity = '0';
+//   skillsText.style.transform = 'translateY(100%)';
+// });
 
 //##PROJECTS
 const projectsText = document.querySelector(
@@ -52,7 +91,7 @@ projects.addEventListener('mouseleave', function () {
 });
 
 //##ROADMAP
-const roadmap = document.querySelector('.roadmap') as HTMLDivElement;
+
 const roadmapFace = document.querySelector(
   '.roadmap__animation__road__part1-face'
 ) as HTMLImageElement;
@@ -119,3 +158,5 @@ roadmap.addEventListener('mouseleave', () => {
   (roadmapFace.parentNode as HTMLDivElement).style.transition = 'all 5s';
   roadmapFaceTimer(1);
 });
+
+//#MAX SECTIONS

@@ -4,6 +4,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
+  transition: all 3s;
   &__img {
     position: relative;
     &-gear {
@@ -41,9 +42,8 @@
   max-width: 100rem;
   border: 1px solid #3bc9db;
   border-radius: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
+  //display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;

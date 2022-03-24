@@ -1,11 +1,9 @@
 .roadmap {
   grid-area: rd;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  transition: all 3s;
   &__title {
     font-size: 3rem;
     text-transform: uppercase;
@@ -37,7 +35,7 @@
         height: 50%;
         display: flex;
         justify-content: flex-start;
-        transform: translateX(35%);
+        transform: translateX(25%);
         transition: all 5s;
         // justify-content: space-between;
         // align-items: flex-end;
@@ -61,13 +59,14 @@
 
 .roadmap-full {
   margin: 5rem auto;
-  padding: 3.2rem;
+  // padding: 3.2rem;
   height: 100rem;
   max-width: 100rem;
   border: 1px solid #3bc9db;
   border-radius: 40px;
   position: relative;
-  display: grid;
+  display: none;
+  // display: grid;
   row-gap: 1rem;
   column-gap: 1rem;
   grid-template-columns: repeat(10, 1fr);

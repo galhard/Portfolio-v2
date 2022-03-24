@@ -1,28 +1,68 @@
 "use strict";
 //GLOBAL SCOPE ELEMENTS
+const hero = document.querySelector('.hero');
+const mapEl = document.querySelector('.map');
 const skills = document.querySelector('.skills');
+const skillsFull = document.querySelector('.skills-full');
 const projects = document.querySelector('.projects');
+const roadmap = document.querySelector('.roadmap');
+const sectionsArray = [hero, mapEl, skills, projects, roadmap];
+sectionsArray.forEach(el => {
+    console.log(el.className);
+});
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
 //## SKILLS
 const skillsText = document.querySelector('.skills__text');
 const skillsImg = document.querySelector('.skills__img');
-skills.addEventListener('mouseenter', function () {
+const hidingSections = function (sectionFull) {
+    setTimeout(() => {
+        hero.style.transform = 'translateX(-200%)';
+        hero.style.opacity = '0';
+        mapEl.style.transform = 'translateX(200%)';
+        mapEl.style.opacity = '0';
+        skills.style.transform = 'translateX(-200%)';
+        skills.style.opacity = '0';
+        projects.style.transform = 'translateX(200%)';
+        projects.style.opacity = '0';
+        roadmap.style.transform = 'translateX(-200%)';
+        roadmap.style.opacity = '0';
+        setTimeout(() => {
+            sectionsArray.forEach(el => {
+                el.style.display = 'none';
+            });
+            sectionFull.style.display = 'block';
+            setTimeout(() => {
+                sectionFull.style.opacity = '1';
+                sectionFull.style.transform = 'translateY(-100%)';
+            }, 1000);
+        }, 3000);
+    }, 5000);
+};
+skills.addEventListener('click', function (e) {
+    console.log(e);
+    projects.style.pointerEvents = 'none';
     skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
     skillsText.style.opacity = '1';
     skillsText.style.transform = 'none';
-    setTimeout(() => {
-        skills.addEventListener('click', () => {
-            skillsImg.style.display = 'none';
-        });
-    }, 5000);
+    hidingSections(skillsFull);
 });
-skills.addEventListener('mouseleave', function () {
-    skillsImg.style.transform = 'none';
-    skillsText.style.opacity = '0';
-    skillsText.style.transform = 'translateY(100%)';
-});
+// skills.addEventListener('mouseenter', function () {
+//   skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
+//   skillsText.style.opacity = '1';
+//   skillsText.style.transform = 'none';
+//   setTimeout(() => {
+//     skills.addEventListener('click', () => {
+//       skillsImg.style.display = 'none';
+//     });
+//   }, 5000);
+// });
+// skills.addEventListener('mouseleave', function () {
+//   skillsImg.style.transform = 'none';
+//   skillsText.style.opacity = '0';
+//   skillsText.style.transform = 'translateY(100%)';
+// });
 //##PROJECTS
 const projectsText = document.querySelector('.projects__text');
 const projectsImgGear = document.querySelector('.projects__img-gear');
@@ -40,7 +80,6 @@ projects.addEventListener('mouseleave', function () {
     projectsText.style.opacity = '0';
 });
 //##ROADMAP
-const roadmap = document.querySelector('.roadmap');
 const roadmapFace = document.querySelector('.roadmap__animation__road__part1-face');
 const roadmapTitle = document.querySelector('.roadmap__title');
 const roadmapStart = document.querySelector('.roadmap__animation__start');
@@ -99,3 +138,4 @@ roadmap.addEventListener('mouseleave', () => {
     roadmapFace.parentNode.style.transition = 'all 5s';
     roadmapFaceTimer(1);
 });
+//#MAX SECTIONS
