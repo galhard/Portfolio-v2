@@ -1,0 +1,47 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  grid-area: ab;
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    &__contact {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      & ion-icon {
+        font-size: 4.4rem;
+        color: #aaa;
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover {
+          color: #51cf66;
+        }
+      }
+    }
+    &__p1 {
+      font-size: 1.6rem;
+      color: #51cf66;
+      font-weight: 600;
+    }
+    &__p2 {
+      font-size: 3rem;
+      color: #eee;
+      font-weight: 700;
+    }
+    &__p3 {
+      font-size: 2rem;
+      color: #eee;
+      font-weight: 400;
+    }
+  }
+  &__header {
+    align-self: flex-start;
+    &__img {
+      height: 17rem;
+    }
+  }
+}

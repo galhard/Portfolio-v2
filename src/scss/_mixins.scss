@@ -1,0 +1,9 @@
+@mixin projFullGears {
+  width: 10rem;
+  position: absolute;
+  transition: all 500s;
+  cursor: pointer;
+  &:hover {
+    transform: rotate(50000deg);
+  }
+}

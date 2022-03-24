@@ -1,0 +1,19 @@
+.map {
+  grid-area: map;
+  border: none;
+}
+
+#map {
+  width: 80%;
+  height: 80%;
+}
+.leaflet-top .leaflet-control {
+  margin: 1.6rem 1.6rem 0 0;
+}
+
+.leaflet-touch .leaflet-bar {
+  border: none;
+}
+.leaflet-touch .leaflet-bar a {
+  opacity: 0.2;
+}

@@ -1,0 +1,25 @@
+.portfolio {
+  margin: 2rem auto;
+  max-width: 100rem;
+  height: 100rem;
+  display: grid;
+  row-gap: 1.6rem;
+  column-gap: 1.6rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas: 'ab ab ab ab map map' 'ab ab ab ab map map' 'sk sk sk pr pr pr' 'sk sk sk pr pr pr' 'rd rd rd rd rd rd' 'rd rd rd rd rd rd';
+  & > * {
+    background-color: #212529;
+    border: 1px solid #3bc9db;
+    border-radius: 40px;
+    padding: 3.2rem;
+    transition: transform 0.5s;
+    &:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 0 2px 0.5px #3bc9db;
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
+}

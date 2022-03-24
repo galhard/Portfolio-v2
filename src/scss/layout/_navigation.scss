@@ -1,0 +1,22 @@
+.nav {
+  width: 450px;
+  margin: 5rem auto 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #3bc9db;
+  border-radius: 20px;
+  padding: 4px 8px;
+  &__el {
+    color: #777;
+    font-size: 16px;
+    padding: 4px 8px;
+    cursor: pointer;
+    &:hover {
+      border-radius: 20px;
+      background-color: rgba(59, 200, 219, 0.2);
+      color: #51cf66;
+    }
+  }
+}

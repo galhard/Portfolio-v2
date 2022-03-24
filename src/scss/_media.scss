@@ -1,0 +1,105 @@
+@media only screen and (max-width: 1100px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 40%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 30%;
+  }
+
+  .nav {
+    width: 300px;
+    margin: 3rem auto 3rem auto;
+    gap: 8px;
+    padding: 6px 2px;
+    &__el {
+      font-size: 12px;
+      padding: 2px 4px;
+    }
+  }
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 'ab ab ' 'ab ab ' 'sk pr ' 'sk pr ' 'rd rd' 'rd rd ';
+    & .map {
+      display: none;
+    }
+    & .about-me__header {
+      align-self: center;
+      &__img {
+        height: 25rem;
+      }
+    }
+    & .skills__img {
+      height: 22rem;
+    }
+    & .projects {
+      &__img {
+        &-gear {
+          height: 22rem;
+        }
+        &-bulb {
+          height: 6rem;
+        }
+      }
+      &__text {
+        right: 2.4rem;
+        top: 3rem;
+        bottom: 3rem;
+        font-size: 2.8rem;
+      }
+    }
+  }
+  .skills-full {
+    margin: 0 auto;
+    height: 66.7rem;
+    &__text {
+      font-size: 3.6rem;
+    }
+    &__img {
+      max-width: 50rem;
+    }
+  }
+
+  .projects-full {
+    &__header {
+      font-size: 3.6rem;
+    }
+    &__projects {
+      &__box {
+        height: 50rem;
+        width: 25rem;
+        border: 1px solid #3bc9db;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        &::hover {
+          box-shadow: 2px 3px 6px 3px rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+    &__bulb {
+      height: 16rem;
+      &-number {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .roadmap-full {
+    height: 66.7rem;
+    &__road {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+}

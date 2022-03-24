@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <script defer src="dist/js/script.js"></script>
+    <script defer src="dist/js/map.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <p class="nav__el" data-name="1">About Me</p>
+        <p class="nav__el" data-name="2">Skills</p>
+        <p class="nav__el" data-name="3">Projects</p>
+        <p class="nav__el" data-name="4">Roadmap</p>
+        <p class="nav__el" data-name="5">Contact</p>
+      </nav>
+    </header>
+    <main>
+      <section class="portfolio">
+        <div class="hero" data-name="1">
+          <div class="hero__left">
+            <div class="hero__left__contact">
+              <ion-icon name="logo-github"></ion-icon>
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <p class="hero__left__p1">Hi, I'm</p>
+            <p class="hero__left__p2">Chris</p>
+            <p class="hero__left__p3">
+              I am self-taught who is learning to become a frontend developer.
+              If you want to know me better, feel free to explore this website
+              or just contact me.
+            </p>
+          </div>
+          <div class="hero__header">
+            <img class="hero__header__img" src="img/hero2.svg" alt="" />
+          </div>
+        </div>
+        <div id="map" class="map" data-name="1"></div>
+        <div class="skills" data-name="2">
+          <div class="skills__text">
+            <p>o</p>
+            <p>f</p>
+            <p>&nbsp;</p>
+            <p>K</p>
+            <p>n</p>
+            <p>o</p>
+            <p>w</p>
+            <p>l</p>
+            <p>e</p>
+            <p>d</p>
+            <p>g</p>
+            <p>e</p>
+          </div>
+
+          <!-- <h2 class="section__header">Skills</h2> -->
+          <!-- <p class="section__text">
+            I use six-level scale to present my current skills. 1st level -
+            Learning, 2nd - beginner, ..., 6th - master
+          </p> -->
+          <img class="skills__img" src="img/circles.svg" alt="" />
+        </div>
+        <div class="projects" data-name="3">
+          <div class="projects__img">
+            <img class="projects__img-gear" src="img/gear.svg" alt="" />
+            <img class="projects__img-bulb" src="img/bulb.svg" alt="" />
+          </div>
+
+          <p class="projects__text">Projects</p>
+        </div>
+        <div class="roadmap" data-name="4">
+          <p class="roadmap__title">Learning Roadmap</p>
+          <div class="roadmap__animation">
+            <p class="roadmap__animation__start">Start</p>
+            <div class="roadmap__animation__road">
+              <div class="roadmap__animation__road__part1">
+                <!-- <ion-icon
+                  class="roadmap__animation__road__part1-happy"
+                  name="happy-outline"
+                ></ion-icon> -->
+                <img
+                  class="roadmap__animation__road__part1-face1"
+                  src="img/road-face1.svg"
+                  alt=""
+                />
+                <img
+                  class="roadmap__animation__road__part1-happy"
+                  src="img/road-face2.svg"
+                  alt=""
+                />
+
+                <img
+                  class="roadmap__animation__road__part1-happy"
+                  src="img/road-face3.svg"
+                  alt=""
+                />
+              </div>
+              <div class="roadmap__animation__road__part2"></div>
+            </div>
+            <p class="roadmap__animation__finish">Finish</p>
+          </div>
+        </div>
+      </section>
+      <section class="skills-full">
+        <p class="skills-full__text">Circles of Knowledge</p>
+        <img class="skills-full__img" src="img/skills.svg" alt="" />
+      </section>
+      <section class="projects-full">
+        <p class="projects-full__header">Projects</p>
+        <div class="projects-full__projects">
+          <div class="projects-full__projects__box">
+            <div class="projects-full__projects__box__title">
+              <p>Meal Picker</p>
+            </div>
+            <div class="projects-full__projects__box__btns">
+              <div class="projects-full__projects__box__btns-github">
+                <img src="img/github-proj-logo.svg" alt="" />
+              </div>
+              <div class="projects-full__projects__box__btns-live">
+                <img src="img/eye.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="projects-full__projects__box">
+            <div class="projects-full__projects__box__title">
+              <p>antyKYC</p>
+            </div>
+            <div class="projects-full__projects__box__btns">
+              <div class="projects-full__projects__box__btns-github">
+                <img src="img/github-proj-logo.svg" alt="" />
+              </div>
+              <div class="projects-full__projects__box__btns-live">
+                <img src="img/eye.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects-full__bulb">
+          <p class="projects-full__bulb-number">2</p>
+          <img class="projects-full__bulb-img" src="img/bulb.svg" alt="" />
+        </div>
+        <img class="projects-full__gear1" src="img/gear-min.svg" alt="" />
+        <img class="projects-full__gear2" src="img/gear-min.svg" alt="" />
+        <img class="projects-full__gear3" src="img/gear-min.svg" alt="" />
+        <img class="projects-full__gear4" src="img/gear-min.svg" alt="" />
+      </section>
+      <section class="roadmap-full">
+        <p class="roadmap-full__header">Learning Roadmap</p>
+        <div class="roadmap-full__road stage1"></div>
+        <div class="roadmap-full__road stage2 stage__completed">
+          <!-- <p class="roadmap-full__road__text">beginner</p> -->
+          <img class="roadmap-full__road__img" src="img/html.svg" alt="" />
+          <a
+            class="roadmap-full__road__link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            target="_blank"
+            >&nbsp;</a
+          >
+        </div>
+        <div class="roadmap-full__road stage3 stage__completed">
+          <img class="roadmap-full__road__img" src="img/CSS.svg" alt="" />
+          <a
+            class="roadmap-full__road__link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            target="_blank"
+            >&nbsp;</a
+          >
+        </div>
+        <div class="roadmap-full__road stage4 stage__completed">
+          <img class="roadmap-full__road__img" src="img/sass.svg" alt="" />
+          <a
+            class="roadmap-full__road__link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            target="_blank"
+            >&nbsp;</a
+          >
+        </div>
+        <div class="roadmap-full__road stage5 stage__completed">
+          <img
+            class="roadmap-full__road__img"
+            src="img/javascript.svg"
+            alt=""
+          />
+          <a
+            class="roadmap-full__road__link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            target="_blank"
+            >&nbsp;</a
+          >
+        </div>
+        <div class="roadmap-full__road stage6 stage__inprogress">
+          <img
+            class="roadmap-full__road__img"
+            src="img/typescript.svg"
+            alt=""
+          />
+          <a
+            class="roadmap-full__road__link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            target="_blank"
+            >&nbsp;</a
+          >
+        </div>
+        <div class="roadmap-full__road stage7">
+          <img class="roadmap-full__road__img" src="img/angular.svg" alt="" />
+          <a
+            class="roadmap-full__road__link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            target="_blank"
+            >&nbsp;</a
+          >
+        </div>
+        <div class="roadmap-full__road stage8"></div>
+        <div class="roadmap-full__road stage9"></div>
+        <div class="roadmap-full__road stage10"></div>
+        <div class="roadmap-full__road stage11"></div>
+        <div class="roadmap-full__road stage12"></div>
+        <div class="roadmap-full__road stage13"></div>
+        <div class="roadmap-full__road stage14"></div>
+        <div class="roadmap-full__road stage15"></div>
+        <div class="roadmap-full__road stage16"></div>
+        <div class="roadmap-full__road stage17"></div>
+        <div class="roadmap-full__road stage18"></div>
+        <div class="roadmap-full__road stage19"></div>
+        <div class="roadmap-full__road stage20"></div>
+        <div class="roadmap-full__road stage21"></div>
+        <div class="roadmap-full__road stage22"></div>
+        <div class="roadmap-full__road stage23"></div>
+        <div class="roadmap-full__road stage24"></div>
+        <div class="roadmap-full__road stage25"></div>
+        <div class="roadmap-full__road stage26"></div>
+        <div class="roadmap-full__road stage27"></div>
+        <div class="roadmap-full__road stage28"></div>
+        <div class="roadmap-full__road stage29"></div>
+        <div class="roadmap-full__road stage30"></div>
+        <div class="roadmap-full__road stage31"></div>
+        <div class="roadmap-full__road stage32"></div>
+        <div class="roadmap-full__road stage33"></div>
+        <div class="roadmap-full__road stage34"></div>
+        <div class="roadmap-full__road stage35"></div>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

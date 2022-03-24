@@ -1,0 +1,267 @@
+.roadmap {
+  grid-area: rd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #51cf66;
+    text-shadow: 0 0 0.5rem #51cf6663;
+    text-align: center;
+  }
+  &__animation {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 3rem;
+    padding-bottom: 5rem;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    color: #51cf66;
+    text-shadow: 0 0 0.5rem #51cf6663;
+    &__start {
+      width: min-content;
+    }
+    &__road {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      &__part1 {
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        &-face1 {
+          height: 6rem;
+        }
+        &-happy {
+          height: 6rem;
+          stroke: red;
+          transition: transform 50s;
+          &:hover {
+            transform: translateX(1000px);
+          }
+        }
+        &-sad {
+          height: 6rem;
+          transition: transform 50s;
+          &:hover {
+            transform: translateX(1000px);
+          }
+        }
+      }
+      &__part2 {
+        height: 50%;
+        border-top: 3px solid #3bc9db;
+      }
+    }
+    &__finish {
+      width: min-content;
+    }
+  }
+}
+
+.roadmap-full {
+  margin: 5rem auto;
+  padding: 3.2rem;
+  height: 100rem;
+  max-width: 100rem;
+  border: 1px solid #3bc9db;
+  border-radius: 40px;
+  position: relative;
+  display: grid;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 4fr repeat(9, 1fr);
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  &__header {
+    grid-column: 1/-1;
+    grid-row: 1;
+    justify-self: center;
+    text-transform: uppercase;
+    font-size: 4.4rem;
+    color: #51cf66;
+    text-shadow: 0 0 0.5rem #51cf6663;
+  }
+  &__road {
+    width: 9rem;
+    height: 9rem;
+    border: 2px solid #bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 7px;
+    &__img {
+      max-width: 60%;
+      max-height: 60%;
+      opacity: 0.5;
+    }
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.stage__completed {
+  border: 3px solid #3bc9db;
+}
+.stage__inprogress {
+  border: 3px solid #51cf66;
+  transform: scale(1.15);
+  box-shadow: 0 0 3px 2px #51cf66;
+  background-color: #1e2125;
+  z-index: 5;
+}
+
+.stage1 {
+  grid-row: 2;
+  grid-column: 2;
+  position: relative;
+}
+.stage2 {
+  grid-row: 2;
+  grid-column: 3;
+}
+.stage3 {
+  grid-row: 2;
+  grid-column: 4;
+}
+.stage4 {
+  grid-row: 2;
+  grid-column: 5;
+}
+.stage5 {
+  grid-row: 2;
+  grid-column: 6;
+}
+.stage6 {
+  grid-row: 2;
+  grid-column: 7;
+}
+.stage7 {
+  grid-row: 2;
+  grid-column: 8;
+}
+.stage8 {
+  grid-row: 2;
+  grid-column: 9;
+}
+.stage9 {
+  grid-row: 3;
+  grid-column: 9;
+}
+.stage10 {
+  grid-row: 4;
+  grid-column: 9;
+}
+.stage11 {
+  grid-row: 4;
+  grid-column: 8;
+}
+.stage12 {
+  grid-row: 4;
+  grid-column: 7;
+}
+.stage13 {
+  grid-row: 4;
+  grid-column: 6;
+}
+.stage14 {
+  grid-row: 4;
+  grid-column: 5;
+}
+.stage15 {
+  grid-row: 4;
+  grid-column: 4;
+}
+.stage16 {
+  grid-row: 4;
+  grid-column: 3;
+}
+.stage17 {
+  grid-row: 4;
+  grid-column: 2;
+}
+.stage18 {
+  grid-row: 5;
+  grid-column: 2;
+}
+.stage19 {
+  grid-row: 6;
+  grid-column: 2;
+}
+.stage20 {
+  grid-row: 6;
+  grid-column: 3;
+}
+.stage21 {
+  grid-row: 6;
+  grid-column: 4;
+}
+.stage22 {
+  grid-row: 6;
+  grid-column: 5;
+}
+.stage23 {
+  grid-row: 6;
+  grid-column: 6;
+}
+.stage24 {
+  grid-row: 6;
+  grid-column: 7;
+}
+.stage25 {
+  grid-row: 6;
+  grid-column: 8;
+}
+.stage26 {
+  grid-row: 6;
+  grid-column: 9;
+}
+.stage27 {
+  grid-row: 7;
+  grid-column: 9;
+}
+.stage28 {
+  grid-row: 8;
+  grid-column: 9;
+}
+.stage29 {
+  grid-row: 8;
+  grid-column: 8;
+}
+.stage30 {
+  grid-row: 8;
+  grid-column: 7;
+}
+.stage31 {
+  grid-row: 8;
+  grid-column: 6;
+}
+.stage32 {
+  grid-row: 8;
+  grid-column: 5;
+}
+.stage33 {
+  grid-row: 8;
+  grid-column: 4;
+}
+.stage34 {
+  grid-row: 8;
+  grid-column: 3;
+}
+.stage35 {
+  grid-row: 8;
+  grid-column: 2;
+}
