@@ -1,5 +1,7 @@
 //GLOBAL SCOPE ELEMENTS
 const portfolio = document.querySelector('.portfolio') as HTMLDivElement;
+const navigation = document.querySelector('.nav') as HTMLElement;
+const header = document.querySelector('header') as HTMLElement;
 const hero = document.querySelector('.hero') as HTMLDivElement;
 const mapEl = document.querySelector('.map') as HTMLDivElement;
 const skills = document.querySelector('.skills') as HTMLDivElement;
@@ -7,9 +9,7 @@ const skillsFull = document.querySelector('.skills-full') as HTMLDivElement;
 const projects = document.querySelector('.projects') as HTMLDivElement;
 const roadmap = document.querySelector('.roadmap') as HTMLDivElement;
 const sectionsArray = [hero, mapEl, skills, projects, roadmap];
-sectionsArray.forEach(el => {
-  console.log(el.className);
-});
+
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
@@ -39,12 +39,14 @@ const hidingSections = function (sectionFull: HTMLDivElement) {
       setTimeout(() => {
         sectionFull.style.opacity = '1';
         sectionFull.style.transform = 'none';
+        setTimeout(() => {
+          navigation.scrollIntoView();
+        }, 1000);
       }, 1000);
-    }, 2000);
+    }, 1000);
   }, 5000);
 };
-skills.addEventListener('click', function (e) {
-  console.log(e);
+skills.addEventListener('click', function () {
   projects.style.pointerEvents = 'none';
   skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
   skillsText.style.opacity = '1';

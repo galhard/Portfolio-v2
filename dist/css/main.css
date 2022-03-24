@@ -36,7 +36,7 @@ main {
 
 .nav {
   width: 450px;
-  margin: 5rem auto 3rem auto;
+  margin: 3rem auto 3rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
