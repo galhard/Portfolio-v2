@@ -9,14 +9,16 @@ const skills = (<HTMLElement>(
 //# MIN SECTIONS
 
 //## SKILLS
+const text = skills.firstElementChild as HTMLParagraphElement;
+const img = skills.lastElementChild as HTMLImageElement;
 skills.addEventListener('mouseenter', function () {
-  const text = skills.firstElementChild as HTMLParagraphElement;
-  const img = skills.lastElementChild as HTMLImageElement;
   img.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
+  setTimeout(() => {
+    text.style.opacity = '1';
+  }, 2000);
 });
 
 skills.addEventListener('mouseleave', function () {
-  const text = skills.firstElementChild as HTMLParagraphElement;
-  const img = skills.lastElementChild as HTMLImageElement;
   img.style.transform = 'none';
+  text.style.opacity = '0';
 });

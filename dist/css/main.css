@@ -215,6 +215,8 @@ main {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.5rem;
+  -webkit-transition: opacity 3s;
+  transition: opacity 3s;
   opacity: 0;
 }
 .skills__img {

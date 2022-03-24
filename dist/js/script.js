@@ -5,13 +5,15 @@ const skills = (document.querySelector('.skills'));
 //mouseleave
 //# MIN SECTIONS
 //## SKILLS
+const text = skills.firstElementChild;
+const img = skills.lastElementChild;
 skills.addEventListener('mouseenter', function () {
-    const text = skills.firstElementChild;
-    const img = skills.lastElementChild;
     img.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
+    setTimeout(() => {
+        text.style.opacity = '1';
+    }, 2000);
 });
 skills.addEventListener('mouseleave', function () {
-    const text = skills.firstElementChild;
-    const img = skills.lastElementChild;
     img.style.transform = 'none';
+    text.style.opacity = '0';
 });
