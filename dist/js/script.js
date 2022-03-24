@@ -17,3 +17,6 @@ skills.addEventListener('mouseleave', function () {
     text.style.opacity = '0';
     text.style.transform = 'translateY(100%)';
 });
+skills.addEventListener('click', function () {
+    img.style.display = 'none';
+});
