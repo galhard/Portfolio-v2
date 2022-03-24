@@ -1,4 +1,5 @@
 //GLOBAL SCOPE ELEMENTS
+const portfolio = document.querySelector('.portfolio') as HTMLDivElement;
 const hero = document.querySelector('.hero') as HTMLDivElement;
 const mapEl = document.querySelector('.map') as HTMLDivElement;
 const skills = document.querySelector('.skills') as HTMLDivElement;
@@ -30,17 +31,16 @@ const hidingSections = function (sectionFull: HTMLDivElement) {
     projects.style.opacity = '0';
     roadmap.style.transform = 'translateX(-200%)';
     roadmap.style.opacity = '0';
+    sectionFull.style.display = 'block';
+    sectionFull.style.transform = 'translateY(300%)';
     setTimeout(() => {
-      sectionsArray.forEach(el => {
-        el.style.display = 'none';
-      });
+      portfolio.style.display = 'none';
 
-      sectionFull.style.display = 'block';
       setTimeout(() => {
         sectionFull.style.opacity = '1';
-        sectionFull.style.transform = 'translateY(-100%)';
+        sectionFull.style.transform = 'none';
       }, 1000);
-    }, 3000);
+    }, 2000);
   }, 5000);
 };
 skills.addEventListener('click', function (e) {

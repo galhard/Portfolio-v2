@@ -1,5 +1,6 @@
 "use strict";
 //GLOBAL SCOPE ELEMENTS
+const portfolio = document.querySelector('.portfolio');
 const hero = document.querySelector('.hero');
 const mapEl = document.querySelector('.map');
 const skills = document.querySelector('.skills');
@@ -28,16 +29,15 @@ const hidingSections = function (sectionFull) {
         projects.style.opacity = '0';
         roadmap.style.transform = 'translateX(-200%)';
         roadmap.style.opacity = '0';
+        sectionFull.style.display = 'block';
+        sectionFull.style.transform = 'translateY(300%)';
         setTimeout(() => {
-            sectionsArray.forEach(el => {
-                el.style.display = 'none';
-            });
-            sectionFull.style.display = 'block';
+            portfolio.style.display = 'none';
             setTimeout(() => {
                 sectionFull.style.opacity = '1';
-                sectionFull.style.transform = 'translateY(-100%)';
+                sectionFull.style.transform = 'none';
             }, 1000);
-        }, 3000);
+        }, 2000);
     }, 5000);
 };
 skills.addEventListener('click', function (e) {
