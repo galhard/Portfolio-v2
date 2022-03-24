@@ -215,8 +215,10 @@ main {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.5rem;
-  -webkit-transition: opacity 3s;
-  transition: opacity 3s;
+  -webkit-transition: all 5s;
+  transition: all 5s;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
   opacity: 0;
 }
 .skills__img {
