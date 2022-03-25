@@ -1,16 +1,17 @@
 .roadmap {
   grid-area: rd;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   transition: all 2s;
+  cursor: pointer;
   &__title {
     font-size: 3rem;
     text-transform: uppercase;
     color: #51cf66;
     text-shadow: 0 0 0.5rem #51cf6663;
     text-align: center;
-    @include opacity5s;
   }
   &__animation {
     display: flex;
@@ -24,7 +25,6 @@
     text-shadow: 0 0 0.5rem #51cf6663;
     &__start {
       width: min-content;
-      @include opacity5s;
     }
     &__road {
       width: 100%;
@@ -35,24 +35,18 @@
         height: 50%;
         display: flex;
         justify-content: flex-start;
-        transform: translateX(25%);
-        transition: all 5s;
-        // justify-content: space-between;
-        // align-items: flex-end;
         &-face {
-          transition: all 5s;
-          height: 20rem;
+          transition: transform 3000s;
+          height: 6rem;
         }
       }
       &__part2 {
         height: 50%;
         border-top: 3px solid #3bc9db;
-        @include opacity5s;
       }
     }
     &__finish {
       width: min-content;
-      @include opacity5s;
     }
   }
 }
@@ -74,6 +68,7 @@
   justify-items: center;
   align-items: center;
   justify-content: center;
+  transition: all 1s;
   &__header {
     grid-column: 1/-1;
     grid-row: 1;
@@ -92,6 +87,8 @@
     align-items: center;
     position: relative;
     border-radius: 7px;
+    opacity: 0;
+    transition: opacity 2s;
     &__img {
       max-width: 60%;
       max-height: 60%;
@@ -121,6 +118,15 @@
   grid-row: 2;
   grid-column: 2;
   position: relative;
+  &::after {
+    content: 'START';
+    position: absolute;
+    font-size: 3rem;
+    color: #51cf66;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 }
 .stage2 {
   grid-row: 2;
@@ -257,4 +263,13 @@
 .stage35 {
   grid-row: 8;
   grid-column: 2;
+  &::after {
+    content: 'FINISH';
+    position: absolute;
+    font-size: 3rem;
+    color: #3bc9db;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 }

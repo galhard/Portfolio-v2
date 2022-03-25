@@ -1,11 +1,8 @@
 @mixin projFullGears {
   width: 10rem;
   position: absolute;
-  transition: all 500s;
+  transition: all 1000s;
   cursor: pointer;
-  &:hover {
-    transform: rotate(50000deg);
-  }
 }
 @mixin opacity5s {
   transition: opacity 5s;
