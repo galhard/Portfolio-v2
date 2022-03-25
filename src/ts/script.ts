@@ -161,7 +161,12 @@ projectsFullProjectsBoxes.forEach(box => {
 const roadmapFace = document.querySelector(
   '.roadmap__animation__road__part1-face'
 ) as HTMLImageElement;
-
+const stagesCompleted = document.querySelectorAll('.stage__completed');
+stagesCompleted.forEach(el => {
+  (
+    el.querySelector('.roadmap-full__road__img') as HTMLImageElement
+  ).style.opacity = '1';
+});
 roadmap.addEventListener('click', function () {
   disablePointerEvents(roadmap);
   roadmapFace.setAttribute('src', 'img/road-face2.svg');
@@ -172,7 +177,13 @@ roadmap.addEventListener('click', function () {
     for (let i = 1; i < 36; i++) {
       stageArray.unshift(document.querySelector(`.stage${i}`));
     }
-    stageArray.forEach((el, index) => {
+    stageArray.forEach((el: HTMLDivElement, index) => {
+      if (el.hasChildNodes()) {
+        el.insertAdjacentHTML(
+          'beforeend',
+          '<img class="roadmap-full__road__arrow" src="img/link-arrow.svg" alt="Link Arrow"/>'
+        );
+      }
       setTimeout(() => {
         el.style.opacity = '1';
       }, (index + 1) * 75);
