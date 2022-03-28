@@ -2,6 +2,7 @@
 //GLOBAL SCOPE ELEMENTS
 const portfolio = document.querySelector('.portfolio');
 const navigation = document.querySelector('.nav');
+const navigationElements = document.querySelectorAll('.nav__el');
 const header = document.querySelector('header');
 const hero = document.querySelector('.hero');
 const mapEl = document.querySelector('.map');
@@ -12,6 +13,7 @@ const projectsFull = document.querySelector('.projects-full');
 const roadmap = document.querySelector('.roadmap');
 const roadmapFull = document.querySelector('.roadmap-full');
 const sectionsArray = [hero, mapEl, skills, projects, roadmap];
+const sectionFullArray = [skillsFull, projectsFull, roadmapFull];
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
@@ -38,8 +40,13 @@ const showFullSection = function (sectionFull, displayType) {
                 sectionFull.style.opacity = '1';
                 sectionFull.style.transform = 'none';
                 navigation.scrollIntoView();
-                // setTimeout(() => {
-                // }, 500);
+                setTimeout(() => {
+                    navigationElements.forEach(el => {
+                        if (el.dataset.number !== sectionFull.dataset.number) {
+                            el.style.pointerEvents = 'auto';
+                        }
+                    });
+                }, 1000);
             }, 1000);
         }, 1000);
     }, 5000);
@@ -48,6 +55,15 @@ const disablePointerEvents = function (section) {
     sectionsArray.forEach(el => {
         if (el.className !== section.className) {
             el.style.pointerEvents = 'none';
+        }
+    });
+    navigationElements.forEach(navEl => {
+        navEl.style.pointerEvents = 'none';
+        if (navEl.textContent?.toLowerCase() === section.className) {
+            navEl.classList.add('nav__active');
+        }
+        else {
+            navEl.classList.remove('nav__active');
         }
     });
 };
@@ -157,3 +173,10 @@ roadmap.addEventListener('click', function () {
         });
     }, 7050);
 });
+//#NAVIGATION
+// const navigationElements = document.querySelectorAll('.nav__el');
+// navigationElements.forEach(el => {
+//   const elDataSetName = (el as HTMLParagraphElement).dataset.name;
+// });
+//##ALL przycisk
+navigationElements.forEach(el => { });

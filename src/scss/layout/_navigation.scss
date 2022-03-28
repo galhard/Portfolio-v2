@@ -14,9 +14,10 @@
     padding: 4px 8px;
     cursor: pointer;
     &:hover {
-      border-radius: 20px;
-      background-color: rgba(59, 200, 219, 0.2);
-      color: #51cf66;
+      @include navigationActive;
     }
+  }
+  &__active {
+    @include navigationActive;
   }
 }

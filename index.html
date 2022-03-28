@@ -23,16 +23,16 @@
   <body>
     <header>
       <nav class="nav">
-        <p class="nav__el" data-name="1">All</p>
-        <p class="nav__el" data-name="2">Skills</p>
-        <p class="nav__el" data-name="3">Projects</p>
-        <p class="nav__el" data-name="4">Roadmap</p>
-        <p class="nav__el" data-name="5">Contact</p>
+        <p class="nav__el nav__active" data-number="1">All</p>
+        <p class="nav__el" data-number="2">Skills</p>
+        <p class="nav__el" data-number="3">Projects</p>
+        <p class="nav__el" data-number="4">Roadmap</p>
+        <p class="nav__el" data-number="5">Contact</p>
       </nav>
     </header>
     <main>
       <section class="portfolio">
-        <div class="hero" data-name="1">
+        <div class="hero" data-number="1">
           <div class="hero__left">
             <div class="hero__left__contact">
               <ion-icon name="logo-github"></ion-icon>
@@ -50,12 +50,12 @@
             <img class="hero__header__img" src="img/hero2.svg" alt="" />
           </div>
         </div>
-        <div id="map" class="map" data-name="1"></div>
-        <div class="skills" data-name="2">
+        <div id="map" class="map" data-number="1"></div>
+        <div class="skills" data-number="2">
           <p class="skills__text">of Knowledge</p>
           <img class="skills__img" src="img/circles.svg" alt="" />
         </div>
-        <div class="projects" data-name="3">
+        <div class="projects" data-number="3">
           <div class="projects__img">
             <img class="projects__img-gear" src="img/gear.svg" alt="" />
             <img class="projects__img-bulb" src="img/bulb.svg" alt="" />
@@ -63,7 +63,7 @@
 
           <p class="projects__text">Projects</p>
         </div>
-        <div class="roadmap" data-name="4">
+        <div class="roadmap" data-number="4">
           <p class="roadmap__title">Learning Roadmap</p>
           <div class="roadmap__animation">
             <p class="roadmap__animation__start">Start</p>
@@ -81,11 +81,11 @@
           </div>
         </div>
       </section>
-      <section class="skills-full">
+      <section class="skills-full" data-number="2">
         <p class="skills-full__text">Circles of Knowledge</p>
         <img class="skills-full__img" src="img/skills.svg" alt="" />
       </section>
-      <section class="projects-full">
+      <section class="projects-full" data-number="3">
         <p class="projects-full__header">Projects</p>
         <div class="projects-full__projects">
           <div class="projects-full__projects__box">
@@ -128,7 +128,7 @@
         <img class="projects-full__gear3" src="img/gear-min.svg" alt="" />
         <img class="projects-full__gear4" src="img/gear-min.svg" alt="" />
       </section>
-      <section class="roadmap-full">
+      <section class="roadmap-full" data-number="4">
         <p class="roadmap-full__header">Learning Roadmap</p>
         <div class="roadmap-full__road stage1"></div>
         <div class="roadmap-full__road stage2 stage__completed">

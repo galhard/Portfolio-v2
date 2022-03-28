@@ -1,6 +1,9 @@
 //GLOBAL SCOPE ELEMENTS
 const portfolio = document.querySelector('.portfolio') as HTMLDivElement;
 const navigation = document.querySelector('.nav') as HTMLElement;
+const navigationElements = document.querySelectorAll(
+  '.nav__el'
+) as NodeListOf<HTMLParagraphElement>;
 const header = document.querySelector('header') as HTMLElement;
 const hero = document.querySelector('.hero') as HTMLDivElement;
 const mapEl = document.querySelector('.map') as HTMLDivElement;
@@ -11,7 +14,7 @@ const projectsFull = document.querySelector('.projects-full') as HTMLDivElement;
 const roadmap = document.querySelector('.roadmap') as HTMLDivElement;
 const roadmapFull = document.querySelector('.roadmap-full') as HTMLDivElement;
 const sectionsArray = [hero, mapEl, skills, projects, roadmap];
-
+const sectionFullArray = [skillsFull, projectsFull, roadmapFull];
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
@@ -45,8 +48,13 @@ const showFullSection = function (
         sectionFull.style.opacity = '1';
         sectionFull.style.transform = 'none';
         navigation.scrollIntoView();
-        // setTimeout(() => {
-        // }, 500);
+        setTimeout(() => {
+          navigationElements.forEach(el => {
+            if (el.dataset.number !== sectionFull.dataset.number) {
+              el.style.pointerEvents = 'auto';
+            }
+          });
+        }, 1000);
       }, 1000);
     }, 1000);
   }, 5000);
@@ -55,6 +63,14 @@ const disablePointerEvents = function (section: HTMLDivElement) {
   sectionsArray.forEach(el => {
     if (el.className !== section.className) {
       el.style.pointerEvents = 'none';
+    }
+  });
+  navigationElements.forEach(navEl => {
+    navEl.style.pointerEvents = 'none';
+    if (navEl.textContent?.toLowerCase() === section.className) {
+      navEl.classList.add('nav__active');
+    } else {
+      navEl.classList.remove('nav__active');
     }
   });
 };
@@ -190,3 +206,11 @@ roadmap.addEventListener('click', function () {
     });
   }, 7050);
 });
+
+//#NAVIGATION
+// const navigationElements = document.querySelectorAll('.nav__el');
+// navigationElements.forEach(el => {
+//   const elDataSetName = (el as HTMLParagraphElement).dataset.name;
+// });
+//##ALL przycisk
+navigationElements.forEach(el => {});

@@ -8,3 +8,10 @@
   transition: opacity 5s;
   opacity: 0;
 }
+
+@mixin navigationActive {
+  border-radius: 20px;
+  background-color: rgba(59, 200, 219, 0.2);
+  color: #51cf66;
+  pointer-events: none;
+}
