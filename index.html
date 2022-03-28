@@ -23,7 +23,7 @@
   <body>
     <header>
       <nav class="nav">
-        <p class="nav__el nav__active" data-number="1">All</p>
+        <p class="nav__el nav__active" data-number="0">All</p>
         <p class="nav__el" data-number="2">Skills</p>
         <p class="nav__el" data-number="3">Projects</p>
         <p class="nav__el" data-number="4">Roadmap</p>
@@ -50,7 +50,11 @@
             <img class="hero__header__img" src="img/hero2.svg" alt="" />
           </div>
         </div>
-        <div id="map" class="map" data-number="1"></div>
+        <div
+          id="map"
+          class="map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+          data-number="map"
+        ></div>
         <div class="skills" data-number="2">
           <p class="skills__text">of Knowledge</p>
           <img class="skills__img" src="img/circles.svg" alt="" />
