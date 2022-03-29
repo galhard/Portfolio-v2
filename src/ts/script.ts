@@ -4,6 +4,10 @@ const navigation = document.querySelector('.nav') as HTMLElement;
 const navigationElements = document.querySelectorAll(
   '.nav__el'
 ) as NodeListOf<HTMLParagraphElement>;
+const contact = document.querySelector('.contact') as HTMLParagraphElement;
+const contactElements = document.querySelectorAll(
+  '.hero__left__contact__link'
+) as NodeListOf<HTMLAnchorElement>;
 const header = document.querySelector('header') as HTMLElement;
 const hero = document.querySelector('.hero') as HTMLDivElement;
 const mapEl = document.querySelector('.map') as HTMLDivElement;
@@ -39,6 +43,15 @@ const resetSectionsFull = function () {
   skillsFull.innerHTML = skillsFullInnerHTML;
   projectsFull.innerHTML = projectsFullInnerHTML;
 };
+//##CONTACT
+contact.addEventListener('click', () => {
+  console.log(contactElements);
+  contactElements.forEach((el, index) => {
+    setTimeout(() => {
+      el.style.opacity = '1';
+    }, (index + 1) * 300);
+  });
+});
 //## SKILLS
 const skillsText = document.querySelector(
   '.skills__text'
@@ -66,6 +79,7 @@ const showFullSection = function (
       sectionsArray.forEach(el => {
         el.style.display = 'none';
       });
+      contact.style.display = 'none';
       setTimeout(() => {
         sectionFull.style.opacity = '1';
         sectionFull.style.transform = 'none';
@@ -81,10 +95,10 @@ const showFullSection = function (
             resetSections();
             el.style.pointerEvents = 'auto';
           });
-        }, 750);
-      }, 750);
-    }, 750);
-  }, 2250);
+        }, 500);
+      }, 500);
+    }, 500);
+  }, 1750);
 };
 const disablePointerEvents = function (section: HTMLDivElement) {
   sectionsArray.forEach(el => {
@@ -127,7 +141,7 @@ const app = function () {
     skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(1100deg)';
     skillsText.style.opacity = '1';
     skillsText.style.transform = 'none';
-    showFullSection(skillsFull, 'block');
+    showFullSection(skillsFull, 'flex');
     // setTimeout(() => {
     //   resetSections();
     //   // skills.innerHTML = skillsInnerHTML;
@@ -251,7 +265,7 @@ const app = function () {
       // roadmap.insertAdjacentHTML('afterbegin', roadmapInnerHTML);
     }, 7000);
 
-    roadmapAnimation(7050);
+    roadmapAnimation(4600);
   });
 };
 app();
@@ -262,17 +276,36 @@ app();
 // });
 //##ALL przycisk
 navigationElements.forEach(el => {
+  const heroImg = document.querySelector(
+    '.hero__header__img'
+  ) as HTMLImageElement;
+
   el.addEventListener('click', function () {
+    if (el.dataset.number !== '5') {
+      heroImg.style.transform = 'rotate(5400deg)';
+    }
     for (let child of navigation.children) {
       child.classList.remove('nav__active');
       (child as HTMLParagraphElement).style.pointerEvents = 'none';
       setTimeout(() => {
         (child as HTMLParagraphElement).style.pointerEvents = 'auto';
-      }, 4500);
+        el.style.pointerEvents = 'none';
+      }, 3000);
     }
     el.classList.add('nav__active');
-    el.style.pointerEvents = 'none';
+    // setTimeout(() => {
+    //   el.className.includes('nav__active')
+    //     ? (el.style.pointerEvents = 'none')
+    //     : (el.style.pointerEvents = 'auto');
+    // }, 1000);
     if (el.dataset.number === '0') {
+      contact.style.display = 'block';
+      navigation.scrollIntoView();
+      heroImg.style.transform = 'none';
+      contactElements.forEach(el => {
+        el.style.opacity = '0';
+      });
+
       sectionFullArray.forEach(section => {
         if ((section.style.opacity = '1')) {
           section.style.opacity = '0';
@@ -324,7 +357,6 @@ navigationElements.forEach(el => {
     }
     if (el.dataset.number === '2') {
       showFullSection(skillsFull, 'flex');
-      // projectsFullAnimation(5000);
     }
     if (el.dataset.number === '3') {
       showFullSection(projectsFull, 'flex');

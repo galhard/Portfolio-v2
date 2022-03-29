@@ -27,7 +27,7 @@
         <p class="nav__el" data-number="2">Skills</p>
         <p class="nav__el" data-number="3">Projects</p>
         <p class="nav__el" data-number="4">Roadmap</p>
-        <p class="nav__el" data-number="5">Contact</p>
+        <p class="nav__el contact" data-number="5">Contact</p>
       </nav>
     </header>
     <main>
@@ -35,8 +35,27 @@
         <div class="hero" data-number="1">
           <div class="hero__left">
             <div class="hero__left__contact">
-              <ion-icon name="logo-github"></ion-icon>
-              <ion-icon name="mail-outline"></ion-icon>
+              <a
+                class="hero__left__contact__link"
+                href="https://github.com/galhard"
+                target="_blank"
+              >
+                <ion-icon name="logo-github"></ion-icon
+              ></a>
+              <a
+                class="hero__left__contact__link"
+                href="https://www.linkedin.com/in/galhard/"
+                target="_blank"
+              >
+                <ion-icon name="logo-linkedin"></ion-icon
+              ></a>
+              <a
+                class="hero__left__contact__link"
+                href="mailto:krzysiekjach@gmail.com"
+                target="_blank"
+              >
+                <ion-icon name="mail-outline"></ion-icon
+              ></a>
             </div>
             <p class="hero__left__p1">Hi, I'm</p>
             <p class="hero__left__p2">Chris</p>
@@ -136,25 +155,19 @@
         <p class="roadmap-full__header">Learning Roadmap</p>
         <div class="roadmap-full__road stage1"></div>
         <div class="roadmap-full__road stage2 stage__completed">
-          <!-- <p class="roadmap-full__road__text">beginner</p> -->
           <img class="roadmap-full__road__img" src="img/html.svg" alt="" />
           <a
             class="roadmap-full__road__link"
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            href="https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/"
             target="_blank"
             >&nbsp;</a
           >
-          <!-- <img
-            class="roadmap-full__road__arrow"
-            src="img/link-arrow.svg"
-            alt=""
-          /> -->
         </div>
         <div class="roadmap-full__road stage3 stage__completed">
           <img class="roadmap-full__road__img" src="img/CSS.svg" alt="" />
           <a
             class="roadmap-full__road__link"
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            href="https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/"
             target="_blank"
             >&nbsp;</a
           >
@@ -163,7 +176,7 @@
           <img class="roadmap-full__road__img" src="img/sass.svg" alt="" />
           <a
             class="roadmap-full__road__link"
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            href="https://www.udemy.com/course/advanced-css-and-sass/"
             target="_blank"
             >&nbsp;</a
           >
@@ -176,7 +189,7 @@
           />
           <a
             class="roadmap-full__road__link"
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            href="https://www.udemy.com/course/the-complete-javascript-course/"
             target="_blank"
             >&nbsp;</a
           >
@@ -189,7 +202,7 @@
           />
           <a
             class="roadmap-full__road__link"
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            href="https://www.udemy.com/course/understanding-typescript/"
             target="_blank"
             >&nbsp;</a
           >
@@ -198,7 +211,7 @@
           <img class="roadmap-full__road__img" src="img/angular.svg" alt="" />
           <a
             class="roadmap-full__road__link"
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation"
+            href="https://www.udemy.com/course/the-complete-guide-to-angular-2/"
             target="_blank"
             >&nbsp;</a
           >
@@ -233,6 +246,7 @@
         <div class="roadmap-full__road stage35"></div>
       </section>
     </main>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

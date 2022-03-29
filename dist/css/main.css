@@ -35,7 +35,7 @@ main {
 }
 
 .nav {
-  width: 450px;
+  max-width: 450px;
   margin: 3rem auto 3rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -127,17 +127,23 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
 }
-.hero__left__contact ion-icon {
+.hero__left__contact__link {
   font-size: 4.4rem;
   color: #aaa;
   cursor: pointer;
+  opacity: 0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-.hero__left__contact ion-icon:hover {
+.hero__left__contact__link:hover {
   color: #51cf66;
 }
 .hero__left__p1 {
@@ -161,6 +167,10 @@ main {
 }
 .hero__header__img {
   height: 17rem;
+  -webkit-transition: -webkit-transform 10s;
+  transition: -webkit-transform 10s;
+  transition: transform 10s;
+  transition: transform 10s, -webkit-transform 10s;
 }
 
 .map {
@@ -236,11 +246,13 @@ main {
   -webkit-transition: all 1s;
   transition: all 1s;
   display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   opacity: 0;
 }
 .skills-full__text {
   padding-top: 3.2rem;
-  text-align: center;
   text-transform: uppercase;
   font-size: 5.2rem;
   color: #51cf66;
@@ -642,7 +654,7 @@ main {
 .stage1::after {
   content: "START";
   position: absolute;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #51cf66;
   top: 50%;
   left: 50%;
@@ -822,7 +834,7 @@ main {
 .stage35::after {
   content: "FINISH";
   position: absolute;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #3bc9db;
   top: 50%;
   left: 50%;
@@ -933,7 +945,7 @@ main {
 }
 @media only screen and (max-width: 480px) {
   .roadmap-full {
-    height: 66.7rem;
+    height: 75rem;
   }
   .roadmap-full__road {
     width: 6rem;

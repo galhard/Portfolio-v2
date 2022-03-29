@@ -11,12 +11,15 @@
     gap: 0.5rem;
     &__contact {
       display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
       gap: 2rem;
       margin-bottom: 2rem;
-      & ion-icon {
+      &__link {
         font-size: 4.4rem;
         color: #aaa;
         cursor: pointer;
+        opacity: 0;
         transition: all 0.5s;
         &:hover {
           color: #51cf66;
@@ -43,6 +46,7 @@
     align-self: flex-start;
     &__img {
       height: 17rem;
+      transition: transform 10s;
     }
   }
 }
