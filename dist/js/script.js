@@ -254,11 +254,6 @@ navigationElements.forEach(el => {
             }, 3000);
         }
         el.classList.add('nav__active');
-        // setTimeout(() => {
-        //   el.className.includes('nav__active')
-        //     ? (el.style.pointerEvents = 'none')
-        //     : (el.style.pointerEvents = 'auto');
-        // }, 1000);
         if (el.dataset.number === '0') {
             contact.style.display = 'block';
             navigation.scrollIntoView();
@@ -302,6 +297,7 @@ navigationElements.forEach(el => {
                 });
             }, 1500);
             setTimeout(() => {
+                resetSectionsFull();
                 app();
             }, 3050);
         }
