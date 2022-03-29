@@ -22,7 +22,10 @@ const portfolioInnerHTML = portfolio.innerHTML;
 const roadmapFullInnerHTML = roadmapFull.innerHTML;
 const skillsFullInnerHTML = skillsFull.innerHTML;
 const projectsFullInnerHTML = projectsFull.innerHTML;
-
+// document.querySelector('.roadmapel')?.addEventListener('click', () => {
+//   showFullSection(roadmapFull, 'grid');
+//   roadmapAnimation(3100);
+// });
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
@@ -31,6 +34,11 @@ const resetSections = function () {
   skills.innerHTML = skillsInnerHTML;
   projects.innerHTML = projectsInnerHTML;
   roadmap.innerHTML = roadmapInnerHTML;
+};
+const resetSectionsFull = function () {
+  roadmapFull.innerHTML = roadmapFullInnerHTML;
+  skillsFull.innerHTML = skillsFullInnerHTML;
+  projectsFull.innerHTML = projectsFullInnerHTML;
 };
 //## SKILLS
 const skillsText = document.querySelector(
@@ -71,12 +79,13 @@ const showFullSection = function (
           });
 
           sectionsArray.forEach(el => {
+            resetSections();
             el.style.pointerEvents = 'auto';
           });
-        }, 1000);
-      }, 1000);
-    }, 1000);
-  }, 5000);
+        }, 500);
+      }, 500);
+    }, 500);
+  }, 1500);
 };
 const disablePointerEvents = function (section: HTMLDivElement) {
   sectionsArray.forEach(el => {
@@ -93,6 +102,25 @@ const disablePointerEvents = function (section: HTMLDivElement) {
     }
   });
 };
+const roadmapAnimation = function (time: number) {
+  setTimeout(() => {
+    const stageArray = [];
+    for (let i = 1; i < 36; i++) {
+      stageArray.unshift(document.querySelector(`.stage${i}`));
+    }
+    stageArray.forEach((el: HTMLDivElement, index) => {
+      if (el.hasChildNodes()) {
+        el.insertAdjacentHTML(
+          'beforeend',
+          '<img class="roadmap-full__road__arrow" src="img/link-arrow.svg" alt="Link Arrow"/>'
+        );
+      }
+      setTimeout(() => {
+        el.style.opacity = '1';
+      }, (index + 1) * 75);
+    });
+  }, time);
+};
 
 const app = function () {
   skills.addEventListener('click', function () {
@@ -101,11 +129,11 @@ const app = function () {
     skillsText.style.opacity = '1';
     skillsText.style.transform = 'none';
     showFullSection(skillsFull, 'block');
-    setTimeout(() => {
-      resetSections();
-      // skills.innerHTML = skillsInnerHTML;
-      // skills.insertAdjacentHTML('afterbegin', skillsInnerHTML);
-    }, 7000);
+    // setTimeout(() => {
+    //   resetSections();
+    //   // skills.innerHTML = skillsInnerHTML;
+    //   // skills.insertAdjacentHTML('afterbegin', skillsInnerHTML);
+    // }, 7000);
   });
 
   //##PROJECTS
@@ -225,26 +253,7 @@ const app = function () {
       // roadmap.insertAdjacentHTML('afterbegin', roadmapInnerHTML);
     }, 7000);
 
-    const roadmapAnimation = function () {
-      setTimeout(() => {
-        const stageArray = [];
-        for (let i = 1; i < 36; i++) {
-          stageArray.unshift(document.querySelector(`.stage${i}`));
-        }
-        stageArray.forEach((el: HTMLDivElement, index) => {
-          if (el.hasChildNodes()) {
-            el.insertAdjacentHTML(
-              'beforeend',
-              '<img class="roadmap-full__road__arrow" src="img/link-arrow.svg" alt="Link Arrow"/>'
-            );
-          }
-          setTimeout(() => {
-            el.style.opacity = '1';
-          }, (index + 1) * 75);
-        });
-      }, 7050);
-    };
-    roadmapAnimation();
+    roadmapAnimation(7050);
   });
 };
 app();
@@ -254,92 +263,64 @@ app();
 //   const elDataSetName = (el as HTMLParagraphElement).dataset.name;
 // });
 //##ALL przycisk
-const resetSectionsFull = function () {
-  roadmapFull.innerHTML = roadmapFullInnerHTML;
-  skillsFull.innerHTML = skillsFullInnerHTML;
-  projectsFull.innerHTML = projectsFullInnerHTML;
-};
-
 navigationElements.forEach(el => {
   el.addEventListener('click', function () {
     for (let el of navigation.children) {
       el.classList.remove('nav__active');
     }
-
     el.classList.add('nav__active');
-    if (el.dataset.number === '0') {
-      sectionFullArray.forEach(section => {
-        if ((section.style.opacity = '1')) {
-          section.style.opacity = '0';
+    // if (el.dataset.number === '0') {
+    //   sectionFullArray.forEach(section => {
+    //     if ((section.style.opacity = '1')) {
+    //       section.style.opacity = '0';
 
-          setTimeout(() => {
-            portfolio.style.display = 'grid';
-            section.style.display = 'none';
-          }, 2000);
-        }
-      });
-      setTimeout(() => {
-        sectionsArray.forEach(el => {
-          let sectionDisplay: string = '';
-          const elNumber = el.dataset.number;
-          if (elNumber === '1') {
-            sectionDisplay = 'flex';
-          } else if (elNumber === 'map') {
-            sectionDisplay = 'block';
-          } else if (elNumber === '2') {
-            sectionDisplay = 'flex';
-          } else if (elNumber === '3') {
-            sectionDisplay = 'flex';
-          } else if (elNumber === '4') {
-            sectionDisplay = 'flex';
-          }
+    //       setTimeout(() => {
+    //         portfolio.style.display = 'grid';
+    //         section.style.display = 'none';
+    //       }, 1000);
+    //     }
+    //   });
+    //   setTimeout(() => {
+    //     sectionsArray.forEach(el => {
+    //       let sectionDisplay: string = '';
+    //       const elNumber = el.dataset.number;
+    //       if (elNumber === '1') {
+    //         sectionDisplay = 'flex';
+    //       } else if (elNumber === 'map') {
+    //         sectionDisplay = 'block';
+    //       } else if (elNumber === '2') {
+    //         sectionDisplay = 'flex';
+    //       } else if (elNumber === '3') {
+    //         sectionDisplay = 'flex';
+    //       } else if (elNumber === '4') {
+    //         sectionDisplay = 'flex';
+    //       }
 
-          el.style.display = `${sectionDisplay}`;
-          setTimeout(() => {
-            el.style.transform = '';
-            el.style.opacity = '1';
-          }, 1000);
-        });
-      }, 3000);
-      setTimeout(() => {
-        app();
-      }, 5500);
-    }
-    if (el.dataset.number !== '0') {
-      sectionFullArray.forEach(section => {
-        if ((section.style.opacity = '1')) {
-          section.style.opacity = '0';
-          setTimeout(() => {
-            section.style.display = 'none';
-            resetSectionsFull();
-          }, 1000);
-        }
-      });
-      setTimeout(() => {
-        sectionFullArray.forEach(section2 => {
-          if (section2.dataset.number === el.dataset.number) {
-            section2.style.opacity = '1';
-            section2.style.display = 'grid';
-            const stageArray = [];
-            for (let i = 1; i < 36; i++) {
-              stageArray.unshift(document.querySelector(`.stage${i}`));
-            }
-            stageArray.forEach((el: HTMLDivElement, index) => {
-              if (el.hasChildNodes()) {
-                el.insertAdjacentHTML(
-                  'beforeend',
-                  '<img class="roadmap-full__road__arrow" src="img/link-arrow.svg" alt="Link Arrow"/>'
-                );
-              }
-              setTimeout(() => {
-                el.style.opacity = '1';
-              }, (index + 1) * 75);
-            });
-          }
-        });
-      }, 1500);
-
-      console.log(el.dataset.number);
+    //       el.style.display = `${sectionDisplay}`;
+    //       setTimeout(() => {
+    //         el.style.transform = '';
+    //         el.style.opacity = '1';
+    //       }, 500);
+    //     });
+    //   }, 1500);
+    //   setTimeout(() => {
+    //     app();
+    //   }, 3050);
+    // }
+    // if (el.dataset.number !== '0') {
+    //   sectionFullArray.forEach(section => {
+    //     if ((section.style.opacity = '1')) {
+    //       section.style.opacity = '0';
+    //       setTimeout(() => {
+    //         section.style.display = 'none';
+    //         resetSectionsFull();
+    //       }, 1000);
+    //     }
+    //   });
+    // }
+    if (el.dataset.number === '4') {
+      showFullSection(roadmapFull, 'grid');
+      roadmapAnimation(3100);
     }
   });
 });

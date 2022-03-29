@@ -113,8 +113,8 @@ main {
           justify-content: space-between;
   gap: 0.5rem;
   grid-area: ab;
-  -webkit-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 .hero__left {
   display: -webkit-box;
@@ -172,8 +172,8 @@ main {
 .map {
   grid-area: map;
   border: none;
-  -webkit-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 #map {
@@ -207,8 +207,8 @@ main {
           justify-content: center;
   position: relative;
   cursor: pointer;
-  -webkit-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 .skills__text {
   text-align: center;
@@ -273,8 +273,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   cursor: pointer;
 }
 .projects__img {
@@ -483,8 +483,8 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   cursor: pointer;
 }
 .roadmap__title {
