@@ -22,16 +22,15 @@ const portfolioInnerHTML = portfolio.innerHTML;
 const roadmapFullInnerHTML = roadmapFull.innerHTML;
 const skillsFullInnerHTML = skillsFull.innerHTML;
 const projectsFullInnerHTML = projectsFull.innerHTML;
-// document.querySelector('.roadmapel')?.addEventListener('click', () => {
-//   showFullSection(roadmapFull, 'grid');
-//   roadmapAnimation(3100);
-// });
+
 //mouseenter
 //mouseleave
 //# MIN SECTIONS
 //####### RESET SECTIONS
 const resetSections = function () {
-  skills.innerHTML = skillsInnerHTML;
+  skillsImg.style.transform = 'none';
+  skillsText.style.opacity = '0';
+  skillsText.style.transform = 'translateY(100%)';
   projects.innerHTML = projectsInnerHTML;
   roadmap.innerHTML = roadmapInnerHTML;
 };
@@ -76,16 +75,16 @@ const showFullSection = function (
             if (el.dataset.number !== sectionFull.dataset.number) {
               el.style.pointerEvents = 'auto';
             }
-          });
+          }, 500);
 
           sectionsArray.forEach(el => {
             resetSections();
             el.style.pointerEvents = 'auto';
           });
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 1500);
+        }, 750);
+      }, 750);
+    }, 750);
+  }, 2250);
 };
 const disablePointerEvents = function (section: HTMLDivElement) {
   sectionsArray.forEach(el => {
@@ -125,7 +124,7 @@ const roadmapAnimation = function (time: number) {
 const app = function () {
   skills.addEventListener('click', function () {
     disablePointerEvents(skills);
-    skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(2000deg)';
+    skillsImg.style.transform = 'scale(0.87) translateY(-12%) rotate(1100deg)';
     skillsText.style.opacity = '1';
     skillsText.style.transform = 'none';
     showFullSection(skillsFull, 'block');
@@ -230,7 +229,6 @@ const app = function () {
       projectFullGithubTimer(1);
     });
   });
-
   //##ROADMAP
 
   const roadmapFace = document.querySelector(
@@ -265,62 +263,77 @@ app();
 //##ALL przycisk
 navigationElements.forEach(el => {
   el.addEventListener('click', function () {
-    for (let el of navigation.children) {
-      el.classList.remove('nav__active');
+    for (let child of navigation.children) {
+      child.classList.remove('nav__active');
+      (child as HTMLParagraphElement).style.pointerEvents = 'none';
+      setTimeout(() => {
+        (child as HTMLParagraphElement).style.pointerEvents = 'auto';
+      }, 4500);
     }
     el.classList.add('nav__active');
-    // if (el.dataset.number === '0') {
-    //   sectionFullArray.forEach(section => {
-    //     if ((section.style.opacity = '1')) {
-    //       section.style.opacity = '0';
+    el.style.pointerEvents = 'none';
+    if (el.dataset.number === '0') {
+      sectionFullArray.forEach(section => {
+        if ((section.style.opacity = '1')) {
+          section.style.opacity = '0';
 
-    //       setTimeout(() => {
-    //         portfolio.style.display = 'grid';
-    //         section.style.display = 'none';
-    //       }, 1000);
-    //     }
-    //   });
-    //   setTimeout(() => {
-    //     sectionsArray.forEach(el => {
-    //       let sectionDisplay: string = '';
-    //       const elNumber = el.dataset.number;
-    //       if (elNumber === '1') {
-    //         sectionDisplay = 'flex';
-    //       } else if (elNumber === 'map') {
-    //         sectionDisplay = 'block';
-    //       } else if (elNumber === '2') {
-    //         sectionDisplay = 'flex';
-    //       } else if (elNumber === '3') {
-    //         sectionDisplay = 'flex';
-    //       } else if (elNumber === '4') {
-    //         sectionDisplay = 'flex';
-    //       }
+          setTimeout(() => {
+            portfolio.style.display = 'grid';
+            section.style.display = 'none';
+          }, 1000);
+        }
+      });
+      setTimeout(() => {
+        sectionsArray.forEach(el => {
+          let sectionDisplay: string = '';
+          const elNumber = el.dataset.number;
+          if (elNumber === '1') {
+            sectionDisplay = 'flex';
+          } else if (elNumber === 'map') {
+            sectionDisplay = 'block';
+          } else if (elNumber === '2') {
+            sectionDisplay = 'flex';
+          } else if (elNumber === '3') {
+            sectionDisplay = 'flex';
+          } else if (elNumber === '4') {
+            sectionDisplay = 'flex';
+          }
 
-    //       el.style.display = `${sectionDisplay}`;
-    //       setTimeout(() => {
-    //         el.style.transform = '';
-    //         el.style.opacity = '1';
-    //       }, 500);
-    //     });
-    //   }, 1500);
-    //   setTimeout(() => {
-    //     app();
-    //   }, 3050);
-    // }
-    // if (el.dataset.number !== '0') {
-    //   sectionFullArray.forEach(section => {
-    //     if ((section.style.opacity = '1')) {
-    //       section.style.opacity = '0';
-    //       setTimeout(() => {
-    //         section.style.display = 'none';
-    //         resetSectionsFull();
-    //       }, 1000);
-    //     }
-    //   });
-    // }
+          el.style.display = `${sectionDisplay}`;
+          setTimeout(() => {
+            el.style.transform = '';
+            el.style.opacity = '1';
+          }, 500);
+        });
+      }, 1500);
+      setTimeout(() => {
+        app();
+      }, 3050);
+    }
+    if (el.dataset.number !== '0') {
+      sectionFullArray.forEach(section => {
+        if ((section.style.opacity = '1')) {
+          section.style.opacity = '0';
+          setTimeout(() => {
+            section.style.display = 'none';
+            resetSectionsFull();
+            app();
+          }, 1000);
+        }
+      });
+    }
+    if (el.dataset.number === '2') {
+      showFullSection(skillsFull, 'flex');
+      // projectsFullAnimation(5000);
+    }
+    if (el.dataset.number === '3') {
+      showFullSection(projectsFull, 'flex');
+      // projectsFullAnimation(5000);
+    }
+
     if (el.dataset.number === '4') {
       showFullSection(roadmapFull, 'grid');
-      roadmapAnimation(3100);
+      roadmapAnimation(4600);
     }
   });
 });

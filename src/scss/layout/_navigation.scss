@@ -13,9 +13,9 @@
     font-size: 16px;
     padding: 4px 8px;
     cursor: pointer;
-    &:hover {
-      @include navigationActive;
-    }
+    // &:hover {
+    //   @include navigationActive;
+    // }
   }
   &__active {
     @include navigationActive;

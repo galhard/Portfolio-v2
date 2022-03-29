@@ -15,14 +15,14 @@
     font-size: 3rem;
     color: #51cf66;
     text-shadow: 0 0 0.5rem #51cf6663;
-    transition: all 5s;
+    transition: all 2s;
     transform: translateY(100%);
     opacity: 0;
   }
   &__img {
     display: block;
     height: 28rem;
-    transition: all 5s;
+    transition: all 2s;
   }
 }
 

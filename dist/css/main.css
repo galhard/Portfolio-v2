@@ -57,12 +57,6 @@ main {
   padding: 4px 8px;
   cursor: pointer;
 }
-.nav__el:hover {
-  border-radius: 20px;
-  background-color: rgba(59, 200, 219, 0.2);
-  color: #51cf66;
-  pointer-events: none;
-}
 .nav__active {
   border-radius: 20px;
   background-color: rgba(59, 200, 219, 0.2);
@@ -219,8 +213,8 @@ main {
   font-size: 3rem;
   color: #51cf66;
   text-shadow: 0 0 0.5rem #51cf6663;
-  -webkit-transition: all 5s;
-  transition: all 5s;
+  -webkit-transition: all 2s;
+  transition: all 2s;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   opacity: 0;
@@ -228,8 +222,8 @@ main {
 .skills__img {
   display: block;
   height: 28rem;
-  -webkit-transition: all 5s;
-  transition: all 5s;
+  -webkit-transition: all 2s;
+  transition: all 2s;
 }
 
 .skills-full {
@@ -539,10 +533,10 @@ main {
           justify-content: flex-start;
 }
 .roadmap__animation__road__part1-face {
-  -webkit-transition: -webkit-transform 3000s;
-  transition: -webkit-transform 3000s;
-  transition: transform 3000s;
-  transition: transform 3000s, -webkit-transform 3000s;
+  -webkit-transition: -webkit-transform 250s;
+  transition: -webkit-transform 250s;
+  transition: transform 250s;
+  transition: transform 250s, -webkit-transform 250s;
   height: 6rem;
 }
 .roadmap__animation__road__part2 {
