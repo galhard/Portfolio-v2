@@ -31,6 +31,11 @@ const projectsFullInnerHTML = projectsFull.innerHTML;
 //mouseleave
 //# MIN SECTIONS
 //####### RESET SECTIONS
+const wait = (seconds: number) =>
+  new Promise(resolve => {
+    setTimeout(resolve, seconds);
+  });
+
 const resetSections = function () {
   skillsImg.style.transform = 'none';
   skillsText.style.opacity = '0';
@@ -48,9 +53,9 @@ const resetSectionsFull = function () {
 contact.addEventListener('click', () => {
   console.log(contactElements);
   contactElements.forEach((el, index) => {
-    setTimeout(() => {
+    wait((index + 1) * 300).then(() => {
       el.style.opacity = '1';
-    }, (index + 1) * 300);
+    });
   });
 });
 //## SKILLS
@@ -62,45 +67,49 @@ const showFullSection = function (
   sectionFull: HTMLDivElement,
   displayType: string
 ) {
-  setTimeout(() => {
-    hero.style.transform = 'translateX(-200%)';
-    hero.style.opacity = '0';
-    mapEl.style.transform = 'translateX(200%)';
-    mapEl.style.opacity = '0';
-    skills.style.transform = 'translateX(-200%)';
-    skills.style.opacity = '0';
-    projects.style.transform = 'translateX(200%)';
-    projects.style.opacity = '0';
-    roadmap.style.transform = 'translateX(-200%)';
-    roadmap.style.opacity = '0';
-    sectionFull.style.display = displayType;
-    sectionFull.style.transform = 'translateY(300%)';
-    setTimeout(() => {
+  wait(1750)
+    .then(() => {
+      hero.style.transform = 'translateX(-200%)';
+      hero.style.opacity = '0';
+      mapEl.style.transform = 'translateX(200%)';
+      mapEl.style.opacity = '0';
+      skills.style.transform = 'translateX(-200%)';
+      skills.style.opacity = '0';
+      projects.style.transform = 'translateX(200%)';
+      projects.style.opacity = '0';
+      roadmap.style.transform = 'translateX(-200%)';
+      roadmap.style.opacity = '0';
+      sectionFull.style.display = displayType;
+      sectionFull.style.transform = 'translateY(300%)';
+      return wait(500);
+    })
+    .then(() => {
       portfolio.style.display = 'none';
       sectionsArray.forEach(el => {
         el.style.display = 'none';
       });
       contact.style.display = 'none';
-      setTimeout(() => {
-        sectionFull.style.opacity = '1';
-        sectionFull.style.transform = 'none';
-        navigation.scrollIntoView();
-        setTimeout(() => {
-          navigationElements.forEach(el => {
-            if (el.dataset.number !== sectionFull.dataset.number) {
-              el.style.pointerEvents = 'auto';
-            }
-          }, 500);
-
-          sectionsArray.forEach(el => {
-            resetSections();
-            el.style.pointerEvents = 'auto';
-          });
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 1750);
+      return wait(500);
+    })
+    .then(() => {
+      sectionFull.style.opacity = '1';
+      sectionFull.style.transform = 'none';
+      navigation.scrollIntoView();
+      return wait(500);
+    })
+    .then(() => {
+      navigationElements.forEach(el => {
+        if (el.dataset.number !== sectionFull.dataset.number) {
+          el.style.pointerEvents = 'auto';
+        }
+      });
+      sectionsArray.forEach(el => {
+        resetSections();
+        el.style.pointerEvents = 'auto';
+      });
+    });
 };
+
 const disablePointerEvents = function (section: HTMLDivElement) {
   sectionsArray.forEach(el => {
     if (el.className !== section.className) {
@@ -117,7 +126,7 @@ const disablePointerEvents = function (section: HTMLDivElement) {
   });
 };
 const roadmapAnimation = function (time: number) {
-  setTimeout(() => {
+  wait(time).then(() => {
     const stageArray = [];
     for (let i = 1; i < 36; i++) {
       stageArray.unshift(document.querySelector(`.stage${i}`));
@@ -129,11 +138,11 @@ const roadmapAnimation = function (time: number) {
           '<img class="roadmap-full__road__arrow" src="img/link-arrow.svg" alt="Link Arrow"/>'
         );
       }
-      setTimeout(() => {
+      wait((index + 1) * 75).then(() => {
         el.style.opacity = '1';
-      }, (index + 1) * 75);
+      });
     });
-  }, time);
+  });
 };
 
 const app = function () {
@@ -143,11 +152,6 @@ const app = function () {
     skillsText.style.opacity = '1';
     skillsText.style.transform = 'none';
     showFullSection(skillsFull, 'flex');
-    // setTimeout(() => {
-    //   resetSections();
-    //   // skills.innerHTML = skillsInnerHTML;
-    //   // skills.insertAdjacentHTML('afterbegin', skillsInnerHTML);
-    // }, 7000);
   });
 
   //##PROJECTS
@@ -162,11 +166,6 @@ const app = function () {
     projectsImgGear.style.transform = 'rotate(6000deg)';
     projectsText.style.opacity = '1';
     showFullSection(projectsFull, 'flex');
-    setTimeout(() => {
-      resetSections();
-      // projects.innerHTML = projectsInnerHTML;
-      // projects.insertAdjacentHTML('afterbegin', projectsInnerHTML);
-    }, 7000);
   });
   //###PROJECTS FULL
   let gears = [];
@@ -198,10 +197,10 @@ const app = function () {
         projectsFullBulb.style.top = '10%';
         projectsFullBulb.style.filter = 'drop-shadow(0 0 5px #51cf66)';
         projectsFullBulb.style.height = '10rem';
-        setTimeout(() => {
+        wait(1800).then((): void => {
           projectsFullProjects.style.opacity = '1';
           projectsFullProjects.style.pointerEvents = 'auto';
-        }, 1800);
+        });
       }
     });
   });
@@ -260,13 +259,7 @@ const app = function () {
     roadmapFace.setAttribute('src', 'img/road-face2.svg');
     roadmapFace.style.transform = 'translateX(2000rem)';
     showFullSection(roadmapFull, 'grid');
-    setTimeout(() => {
-      resetSections();
-      // roadmap.innerHTML = '';
-      // roadmap.insertAdjacentHTML('afterbegin', roadmapInnerHTML);
-    }, 7000);
-
-    roadmapAnimation(4600);
+    roadmapAnimation(3500);
   });
 };
 app();
@@ -288,10 +281,10 @@ navigationElements.forEach(el => {
     for (let child of navigation.children) {
       child.classList.remove('nav__active');
       (child as HTMLParagraphElement).style.pointerEvents = 'none';
-      setTimeout(() => {
+      wait(3000).then((): void => {
         (child as HTMLParagraphElement).style.pointerEvents = 'auto';
         el.style.pointerEvents = 'none';
-      }, 3000);
+      });
     }
     el.classList.add('nav__active');
     if (el.dataset.number === '0') {
@@ -302,17 +295,16 @@ navigationElements.forEach(el => {
         el.style.opacity = '0';
       });
 
-      sectionFullArray.forEach(section => {
+      sectionFullArray.forEach((section): void => {
         if ((section.style.opacity = '1')) {
           section.style.opacity = '0';
-
-          setTimeout(() => {
+          wait(1000).then((): void => {
             portfolio.style.display = 'grid';
             section.style.display = 'none';
-          }, 1000);
+          });
         }
       });
-      setTimeout(() => {
+      wait(1500).then((): void => {
         sectionsArray.forEach(el => {
           let sectionDisplay: string = '';
           const elNumber = el.dataset.number;
@@ -327,28 +319,27 @@ navigationElements.forEach(el => {
           } else if (elNumber === '4') {
             sectionDisplay = 'flex';
           }
-
           el.style.display = `${sectionDisplay}`;
-          setTimeout(() => {
+          wait(500).then((): void => {
             el.style.transform = '';
             el.style.opacity = '1';
-          }, 500);
+          });
         });
-      }, 1500);
-      setTimeout(() => {
+      });
+      wait(3050).then((): void => {
         resetSectionsFull();
         app();
-      }, 3050);
+      });
     }
     if (el.dataset.number !== '0') {
-      sectionFullArray.forEach(section => {
-        if ((section.style.opacity = '1')) {
-          section.style.opacity = '0';
-          setTimeout(() => {
-            section.style.display = 'none';
+      sectionFullArray.forEach((sectionFull): void => {
+        if ((sectionFull.style.opacity = '1')) {
+          sectionFull.style.opacity = '0';
+          wait(1000).then((): void => {
+            sectionFull.style.display = 'none';
             resetSectionsFull();
             app();
-          }, 1000);
+          });
         }
       });
     }
@@ -362,7 +353,7 @@ navigationElements.forEach(el => {
 
     if (el.dataset.number === '4') {
       showFullSection(roadmapFull, 'grid');
-      roadmapAnimation(4600);
+      roadmapAnimation(3500);
     }
   });
 });
