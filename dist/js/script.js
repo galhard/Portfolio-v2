@@ -54,38 +54,30 @@ contact.addEventListener('click', () => {
 //## SKILLS
 const skillsText = document.querySelector('.skills__text');
 const skillsImg = document.querySelector('.skills__img');
-const showFullSection = function (sectionFull, displayType) {
-    wait(1750)
-        .then(() => {
+const showFullSection = async function (sectionFull, displayType) {
+    try {
+        await wait(1750);
+        sectionsArray.forEach(el => {
+            el.style.opacity = '0';
+        });
         hero.style.transform = 'translateX(-200%)';
-        hero.style.opacity = '0';
         mapEl.style.transform = 'translateX(200%)';
-        mapEl.style.opacity = '0';
         skills.style.transform = 'translateX(-200%)';
-        skills.style.opacity = '0';
         projects.style.transform = 'translateX(200%)';
-        projects.style.opacity = '0';
         roadmap.style.transform = 'translateX(-200%)';
-        roadmap.style.opacity = '0';
         sectionFull.style.display = displayType;
         sectionFull.style.transform = 'translateY(300%)';
-        return wait(500);
-    })
-        .then(() => {
+        await wait(500);
         portfolio.style.display = 'none';
         sectionsArray.forEach(el => {
             el.style.display = 'none';
         });
         contact.style.display = 'none';
-        return wait(500);
-    })
-        .then(() => {
+        await wait(500);
         sectionFull.style.opacity = '1';
         sectionFull.style.transform = 'none';
         navigation.scrollIntoView();
-        return wait(500);
-    })
-        .then(() => {
+        await wait(500);
         navigationElements.forEach(el => {
             if (el.dataset.number !== sectionFull.dataset.number) {
                 el.style.pointerEvents = 'auto';
@@ -95,7 +87,10 @@ const showFullSection = function (sectionFull, displayType) {
             resetSections();
             el.style.pointerEvents = 'auto';
         });
-    });
+    }
+    catch (err) {
+        console.error(`🤯We have a problem: ${err.message}`);
+    }
 };
 const disablePointerEvents = function (section) {
     sectionsArray.forEach(el => {
