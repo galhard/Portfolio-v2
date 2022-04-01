@@ -186,6 +186,13 @@ const app = function () {
       bulbOpacityCounter++;
       projectsFullBulb.style.opacity = `${0.25 * bulbOpacityCounter}`;
       gear.style.transform = 'rotate(25000deg)';
+      if (bulbOpacityCounter === 1) {
+        (
+          document.querySelector(
+            '.projects-full__click'
+          ) as HTMLParagraphElement
+        ).style.opacity = '0';
+      }
       if (bulbOpacityCounter === 4) {
         projectsFullHeader.style.opacity = '0';
         projectsFullBulb.style.top = '10%';
